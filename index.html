@@ -17,8 +17,8 @@
     }
 
     .envelope {
-      width: 300px;
-      height: 200px;
+      width: 700px;
+      height: auto;
       background: #fff;
       border: 3px solid #ff69b4;
       position: relative;
@@ -28,6 +28,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 30px;
     }
 
     .message {
@@ -52,6 +53,18 @@
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    .message-text {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #6a0572;
+      padding: 20px;
+      border-left: 6px solid #ff4e9b;
+      border-radius: 10px;
+      max-width: 100%;
+      line-height: 1.8;
+      font-size: 1.2em;
+      text-align: left;
     }
 
     button {
@@ -104,7 +117,11 @@
 
   <div class="envelope" id="envelope">
     <div class="message" id="message">
-      Parabéns meu amor! <br> Que Deus e orixás te abençoem muito! 🥳
+      <span class="message-text">
+        🎉 Parabéns, minha vida!<br><br>
+        Que Deus e os Orixás abençoem cada passo da sua caminhada, te trazendo luz, proteção e muitas conquistas. Você é a mulher da minha vida, e quero comemorar essa data ao seu lado por muitos e muitos anos, até ficarmos bem velhinhos juntinhos 👵🏽👴🏽❤️<br><br>
+        Feliz aniversário, meu bem! Que esse novo ciclo seja cheio de alegrias, paz e realizações. Te amo demais, hoje e sempre! 💘
+      </span>
     </div>
   </div>
 
@@ -115,7 +132,6 @@
   <script>
     function abrirCarta() {
       const message = document.getElementById("message");
-
       message.classList.add("show");
       soltarConfete();
     }
