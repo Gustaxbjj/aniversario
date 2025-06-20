@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta de Parabéns 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .envelope {
+      width: 300px;
+      height: 200px;
+      background: #fff;
+      border: 3px solid #ff69b4;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .message {
+      opacity: 0;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #ff1493;
+      transition: opacity 1s ease;
+    }
+
+    .message.show {
+      opacity: 1;
+      animation: fadeInUp 2s forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .confetti-piece {
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      animation: fall 3s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="envelope" id="envelope">
+    <div class="message" id="message">
+      🎈 Parabéns! <br> Que seu dia seja incrível! 🥳
+    </div>
+  </div>
+
+  <button onclick="abrirCarta()">Abrir Carta 💌</button>
+
+  <div class="confetti" id="confetti"></div>
+
+  <script>
+    function abrirCarta() {
+      const message = document.getElementById("message");
+
+      message.classList.add("show");
+      soltarConfete();
+    }
+
+    function soltarConfete() {
+      const confetti = document.getElementById("confetti");
+      for (let i = 0; i < 100; i++) {
+        let piece = document.createElement("div");
+        piece.classList.add("confetti-piece");
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.top = Math.random() * -20 + "vh";
+        piece.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 60%)`;
+        piece.style.animationDelay = (Math.random() * 2) + "s";
+        confetti.appendChild(piece);
+
+        setTimeout(() => {
+          piece.remove();
+        }, 4000);
+      }
+    }
+  </script>
+
+</body>
+</html>
